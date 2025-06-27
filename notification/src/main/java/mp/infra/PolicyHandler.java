@@ -25,14 +25,14 @@ public class PolicyHandler {
 
     @StreamListener(
         value = KafkaProcessor.INPUT,
-        condition = "headers['type']=='WriterEnrolled'"
+        condition = "headers['type']=='AuthorEnrolled'"
     )
-    public void wheneverWriterEnrolled_Notify(
-        @Payload WriterEnrolled writerEnrolled
+    public void wheneverAuthorEnrolled_Notify(
+        @Payload AuthorEnrolled authorEnrolled
     ) {
-        WriterEnrolled event = writerEnrolled;
+        AuthorEnrolled event = authorEnrolled;
         System.out.println(
-            "\n\n##### listener Notify : " + writerEnrolled + "\n\n"
+            "\n\n##### listener Notify : " + authorEnrolled + "\n\n"
         );
 
         // Sample Logic //

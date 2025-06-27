@@ -10,7 +10,7 @@ import javax.persistence.*;
 import lombok.Data;
 import mp.AuthorenrollApplication;
 import mp.domain.AuditCompleted;
-import mp.domain.WriterEnrolled;
+import mp.domain.AuthorEnrolled;
 
 @Entity
 @Table(name = "Writer_table")
@@ -32,8 +32,8 @@ public class Writer {
 
     @PostPersist
     public void onPostPersist() {
-        WriterEnrolled writerEnrolled = new WriterEnrolled(this);
-        writerEnrolled.publishAfterCommit();
+        AuthorEnrolled authorEnrolled = new AuthorEnrolled(this);
+        authorEnrolled.publishAfterCommit();
     }
 
     @PostUpdate

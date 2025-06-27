@@ -43,7 +43,7 @@ public class 알림 {
     }
 
     //<<< Clean Arch / Port Method
-    public static void notify(WriterEnrolled writerEnrolled) {
+    public static void notify(AuthorEnrolled authorEnrolled) {
         //implement business logic here:
 
         /** Example 1:  new item 
@@ -55,7 +55,7 @@ public class 알림 {
         /** Example 2:  finding and process
         
 
-        repository().findById(writerEnrolled.get???()).ifPresent(알림->{
+        repository().findById(authorEnrolled.get???()).ifPresent(알림->{
             
             알림 // do something
             repository().save(알림);

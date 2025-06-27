@@ -53,6 +53,31 @@ public class PublishBook {
     }
 
     //<<< Clean Arch / Port Method
+    public static void registerBook(MakeAudiobooked makeAudiobooked) {
+        //implement business logic here:
+
+        /** Example 1:  new item 
+        PublishBook publishBook = new PublishBook();
+        repository().save(publishBook);
+
+        */
+
+        /** Example 2:  finding and process
+        
+
+        repository().findById(makeAudiobooked.get???()).ifPresent(publishBook->{
+            
+            publishBook // do something
+            repository().save(publishBook);
+
+
+         });
+        */
+
+    }
+
+    //>>> Clean Arch / Port Method
+    //<<< Clean Arch / Port Method
     public static void 조회수증가(BookRead bookRead) {
         //implement business logic here:
 

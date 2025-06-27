@@ -18,19 +18,19 @@ public class EnrollViewViewHandler {
     private EnrollViewRepository enrollViewRepository;
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void whenWriterEnrolled_then_CREATE_1(
-        @Payload WriterEnrolled writerEnrolled
+    public void whenAuthorEnrolled_then_CREATE_1(
+        @Payload AuthorEnrolled authorEnrolled
     ) {
         try {
-            if (!writerEnrolled.validate()) return;
+            if (!authorEnrolled.validate()) return;
 
             // view 객체 생성
             EnrollView enrollView = new EnrollView();
             // view 객체에 이벤트의 Value 를 set 함
-            enrollView.setUserId(writerEnrolled.getUserId());
-            enrollView.setInfo(writerEnrolled.getInfo());
-            enrollView.setPortfolioUrl(writerEnrolled.getPortfolioUrl());
-            enrollView.setStatus(writerEnrolled.getStatus());
+            enrollView.setUserId(authorEnrolled.getUserId());
+            enrollView.setInfo(authorEnrolled.getInfo());
+            enrollView.setPortfolioUrl(authorEnrolled.getPortfolioUrl());
+            enrollView.setStatus(authorEnrolled.getStatus());
             // view 레파지 토리에 save
             enrollViewRepository.save(enrollView);
         } catch (Exception e) {

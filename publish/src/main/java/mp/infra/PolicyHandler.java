@@ -25,6 +25,22 @@ public class PolicyHandler {
 
     @StreamListener(
         value = KafkaProcessor.INPUT,
+        condition = "headers['type']=='MakeAudiobooked'"
+    )
+    public void wheneverMakeAudiobooked_RegisterBook(
+        @Payload MakeAudiobooked makeAudiobooked
+    ) {
+        MakeAudiobooked event = makeAudiobooked;
+        System.out.println(
+            "\n\n##### listener RegisterBook : " + makeAudiobooked + "\n\n"
+        );
+
+        // Sample Logic //
+        PublishBook.registerBook(event);
+    }
+
+    @StreamListener(
+        value = KafkaProcessor.INPUT,
         condition = "headers['type']=='BookRead'"
     )
     public void wheneverBookRead_조회수증가(@Payload BookRead bookRead) {
